@@ -3,41 +3,64 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#100d25">
-<title>FRUITSTUDIO AI — Imagine tes histoires</title>
+<title>FRUITSTUDIO AI — Générateur vidéo</title>
 <style>
 :root{color-scheme:dark;--bg:#100d25;--panel:#1b1736;--muted:#aaa5c5;--pink:#ff6ab7;--cyan:#66e6ff;--line:#383158}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 85% 0,#39205a 0,transparent 35%),var(--bg);color:#fff;font:16px/1.5 Inter,system-ui,Arial}
-header{display:flex;justify-content:space-between;align-items:center;padding:20px max(5%,calc((100% - 1120px)/2));border-bottom:1px solid #ffffff18}
-.logo{font-weight:900;letter-spacing:1px}.logo span{color:var(--pink)}.credits{background:#292345;border:1px solid var(--line);padding:8px 13px;border-radius:30px;font-size:13px}
-main{max-width:1120px;margin:auto;padding:56px 22px}.hero{text-align:center;margin-bottom:38px}.tag{color:var(--cyan);font-size:12px;letter-spacing:2px;font-weight:800}.hero h1{font-size:clamp(34px,7vw,64px);line-height:1.05;margin:12px 0}.hero h1 span{background:linear-gradient(90deg,var(--pink),#ffc76a);-webkit-background-clip:text;color:transparent}.hero p{color:var(--muted);max-width:600px;margin:0 auto}
-.layout{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}.panel{background:#1b1736eF;border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 18px 60px #0003}.panel h2{margin:0 0 20px;font-size:20px}label{display:block;font-size:13px;color:#d4cfea;margin:15px 0 7px}input,select,textarea{width:100%;background:#100d25;color:#fff;border:1px solid #42395f;border-radius:12px;padding:13px;font:inherit;outline:none}textarea{min-height:115px;resize:vertical}input:focus,select:focus,textarea:focus{border-color:var(--cyan)}.twocol{display:grid;grid-template-columns:1fr 1fr;gap:12px}.btn{width:100%;border:0;border-radius:13px;padding:15px;margin-top:20px;background:linear-gradient(90deg,#fa62b3,#a879ff);color:white;font-weight:800;font-size:15px;cursor:pointer}.btn:disabled{opacity:.6;cursor:wait}.preview{min-height:310px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(145deg,#29204b,#17132e);border:1px dashed #66568b;border-radius:17px;padding:20px}.fruit{font-size:60px;text-align:center}.preview h3{text-align:center;margin:8px}.preview p{color:var(--muted);text-align:center;font-size:14px}.output{white-space:pre-wrap;overflow-wrap:anywhere;background:#100d25;border:1px solid var(--line);border-radius:12px;padding:14px;margin-top:14px;font-size:13px;color:#e8e3ff}.notice{color:#bdb6d5;font-size:12px;margin-top:14px}.gallery{margin-top:34px}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{border:1px solid var(--line);border-radius:30px;padding:7px 11px;color:#d7d0ed;font-size:12px}.footer{text-align:center;color:#8f89aa;font-size:12px;padding:30px}
+header{display:flex;justify-content:space-between;align-items:center;padding:20px max(5%,calc((100% - 1120px)/2));border-bottom:1px solid #ffffff18}.logo{font-weight:900;letter-spacing:1px}.logo span{color:var(--pink)}.status{background:#292345;border:1px solid var(--line);padding:8px 13px;border-radius:30px;font-size:12px;color:var(--cyan)}
+main{max-width:1120px;margin:auto;padding:52px 22px}.hero{text-align:center;margin-bottom:38px}.tag{color:var(--cyan);font-size:12px;letter-spacing:2px;font-weight:800}.hero h1{font-size:clamp(34px,7vw,64px);line-height:1.05;margin:12px 0}.hero h1 span{background:linear-gradient(90deg,var(--pink),#ffc76a);-webkit-background-clip:text;color:transparent}.hero p{color:var(--muted);max-width:650px;margin:auto}
+.layout{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}.panel{background:#1b1736ef;border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 18px 60px #0003}.panel h2{margin:0 0 20px;font-size:20px}label{display:block;font-size:13px;color:#d4cfea;margin:15px 0 7px}input,select,textarea{width:100%;background:#100d25;color:#fff;border:1px solid #42395f;border-radius:12px;padding:13px;font:inherit;outline:none}textarea{min-height:130px;resize:vertical}input:focus,select:focus,textarea:focus{border-color:var(--cyan)}.twocol{display:grid;grid-template-columns:1fr 1fr;gap:12px}.btn{width:100%;border:0;border-radius:13px;padding:15px;margin-top:20px;background:linear-gradient(90deg,#fa62b3,#a879ff);color:white;font-weight:800;font-size:15px;cursor:pointer}.btn:disabled{opacity:.6;cursor:wait}.preview{min-height:330px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(145deg,#29204b,#17132e);border:1px dashed #66568b;border-radius:17px;padding:20px}.fruit{font-size:60px;text-align:center}.preview h3{text-align:center;margin:8px}.preview p{color:var(--muted);text-align:center;font-size:14px}.output{white-space:pre-wrap;overflow-wrap:anywhere;background:#100d25;border:1px solid var(--line);border-radius:12px;padding:14px;margin-top:14px;font-size:13px;color:#e8e3ff}.notice{color:#bdb6d5;font-size:12px;margin-top:14px}.footer{text-align:center;color:#8f89aa;font-size:12px;padding:30px}video{width:100%;border-radius:14px;background:#090713;margin-top:12px}.hidden{display:none}
 @media(max-width:760px){main{padding-top:35px}.layout{grid-template-columns:1fr}.panel{padding:19px}.hero{margin-bottom:25px}header{padding:16px 18px}}
 </style>
 </head>
 <body>
-<header><div class="logo">🍓 FRUIT<span>STUDIO</span> AI</div><div class="credits">✨ <b id="credits">50</b> crédits démo</div></header>
+<header><div class="logo">🍓 FRUIT<span>STUDIO</span> AI</div><div class="status" id="status">Connexion IA…</div></header>
 <main>
-<section class="hero"><div class="tag">TON STUDIO CRÉATIF IA</div><h1>Des fruits. Des histoires.<br><span>Un univers sans limites.</span></h1><p>Imagine des personnages fruités et transforme tes idées en concepts de vidéos courtes pour TikTok et YouTube Shorts.</p></section>
+<section class="hero"><div class="tag">TON STUDIO CRÉATIF IA</div><h1>Des fruits. Des histoires.<br><span>En vraies vidéos.</span></h1><p>Décris ton personnage et ton histoire : FRUITSTUDIO AI envoie ta demande au générateur vidéo Agnes AI.</p></section>
 <div class="layout">
-<section class="panel"><h2>🎬 Créer un concept</h2>
+<section class="panel"><h2>🎬 Créer une vidéo</h2>
 <form id="form">
-<label for="character">Personnage principal</label><input id="character" required value="Une banane footballeuse" placeholder="Ex. une fraise détective">
+<label for="character">Personnage principal</label><input id="character" required maxlength="160" value="Une banane footballeuse" placeholder="Ex. une fraise détective">
 <div class="twocol"><div><label for="genre">Genre</label><select id="genre"><option>Comédie</option><option>Action</option><option>Romance</option><option>Aventure</option><option>Mystère</option><option>Drame</option><option>Fantaisie</option><option>Famille</option><option>Luxe</option></select></div>
-<div><label for="duration">Durée</label><select id="duration"><option value="15">15 secondes</option><option value="20" selected>20 secondes</option><option value="30">30 secondes</option><option value="45">45 secondes</option><option value="60">60 secondes</option></select></div></div>
-<label for="idea">Ton idée d’histoire</label><textarea id="idea" required placeholder="Décris ce qui doit se passer dans la vidéo...">Elle dribble deux adversaires, marque un but spectaculaire et célèbre avec une danse drôle.</textarea>
-<div class="twocol"><div><label for="language">Langue des dialogues</label><select id="language"><option>Français</option><option>Anglais</option><option>Sans dialogue</option></select></div><div><label for="format">Format vidéo</label><input id="format" value="Vertical 9:16" disabled></div></div>
-<button class="btn" id="submit" type="submit">✨ Générer mon concept</button>
-<p class="notice">Prototype : les crédits affichés sont une démonstration locale. Aucun rendu vidéo réel n’est effectué pour le moment.</p>
+<div><label for="duration">Durée</label><select id="duration"><option value="4">4 secondes</option><option value="8" selected>8 secondes</option><option value="12">12 secondes</option></select></div></div>
+<label for="idea">Ton idée d’histoire</label><textarea id="idea" required maxlength="1800" placeholder="Décris ce qui doit se passer dans la vidéo...">Elle dribble deux adversaires, marque un but spectaculaire et célèbre avec une danse drôle.</textarea>
+<div class="twocol"><div><label for="language">Langue des dialogues</label><select id="language"><option>Français</option><option>Anglais</option><option>Sans dialogue</option></select></div><div><label>Format</label><input value="Vertical 9:16 · 720p" disabled></div></div>
+<button class="btn" id="submit" type="submit">✨ Générer ma vidéo</button>
+<p class="notice">Le générateur gratuit peut avoir des limites de débit, de durée et de disponibilité. Une génération réelle dépend de l'accès autorisé par Agnes AI.</p>
 </form></section>
-<section class="panel"><h2>🌟 Ton résultat</h2><div class="preview" id="preview"><div class="fruit">🍌🍓🍊</div><h3>Ton prochain hit commence ici</h3><p>Remplis le formulaire pour créer un prompt détaillé prêt à utiliser dans un outil vidéo IA.</p></div><div id="result" hidden><div class="output" id="prompt"></div><button class="btn" id="copy" type="button">📋 Copier le prompt</button></div></section>
+<section class="panel"><h2>🌟 Ta vidéo</h2><div class="preview" id="preview"><div class="fruit">🍌🍓🍊</div><h3>Ton prochain hit commence ici</h3><p>Remplis le formulaire pour lancer la création de ta vidéo verticale.</p></div><div id="result" class="hidden"><p id="message" aria-live="polite">Préparation…</p><video id="video" class="hidden" controls playsinline></video><a id="download" class="btn hidden" download="fruitstudio-video.mp4" href="#" style="display:block;text-align:center;text-decoration:none">⬇️ Télécharger la vidéo</a></div></section>
 </div>
-<section class="gallery"><h2>Explore les univers</h2><div class="chips"><span class="chip">😂 Comédie</span><span class="chip">💗 Romance</span><span class="chip">⚔️ Action</span><span class="chip">🕵️ Mystère</span><span class="chip">🧙 Fantaisie</span><span class="chip">🌍 Aventure</span><span class="chip">🎭 Drame</span><span class="chip">👨‍👩‍👧 Famille</span><span class="chip">💎 Luxe</span></div></section>
 </main><div class="footer">FRUITSTUDIO AI · Crée, imagine, raconte.</div>
 <script>
-const form=document.getElementById('form'), result=document.getElementById('result'), preview=document.getElementById('preview'), promptBox=document.getElementById('prompt'), submit=document.getElementById('submit');
-let credits=50;document.getElementById('credits').textContent=credits;
-form.addEventListener('submit',async e=>{e.preventDefault();if(credits<1){alert('Crédits démo épuisés.');return}submit.disabled=true;submit.textContent='Création du concept...';
-try{const response=await fetch('/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({character:document.getElementById('character').value,genre:document.getElementById('genre').value,idea:document.getElementById('idea').value,language:document.getElementById('language').value,duration:document.getElementById('duration').value})});const data=await response.json();if(!response.ok)throw new Error(data.error||'Erreur');credits--;document.getElementById('credits').textContent=credits;promptBox.textContent=data.result.prompt;preview.hidden=true;result.hidden=false;}catch(err){alert(err.message)}finally{submit.disabled=false;submit.textContent='✨ Générer mon concept'}});
-document.getElementById('copy').addEventListener('click',async()=>{await navigator.clipboard.writeText(promptBox.textContent);document.getElementById('copy').textContent='✓ Prompt copié'});
+const form=document.getElementById('form'), submit=document.getElementById('submit');
+const preview=document.getElementById('preview'), result=document.getElementById('result');
+const message=document.getElementById('message'), video=document.getElementById('video');
+const download=document.getElementById('download'), statusLabel=document.getElementById('status');
+fetch('/api/health').then(r=>r.json()).then(d=>{statusLabel.textContent=d.configured?'✨ Agnes AI connectée':'⚠️ Clé API manquante';}).catch(()=>{statusLabel.textContent='Connexion indisponible';});
+const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+form.addEventListener('submit',async e=>{
+ e.preventDefault();submit.disabled=true;submit.textContent='Envoi au générateur…';
+ preview.classList.add('hidden');result.classList.remove('hidden');video.classList.add('hidden');download.classList.add('hidden');message.textContent='Envoi de ta demande à Agnes AI…';
+ try{
+  const response=await fetch('/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+   character:document.getElementById('character').value,genre:document.getElementById('genre').value,
+   idea:document.getElementById('idea').value,language:document.getElementById('language').value,
+   duration:document.getElementById('duration').value
+  })});
+  const data=await response.json();if(!response.ok)throw new Error(data.error||'Erreur de génération');
+  message.textContent='Génération en cours… cela peut prendre quelques minutes.';
+  let finished=false;
+  for(let i=0;i<60;i++){
+   await wait(8000);
+   const poll=await fetch('/api/status/'+encodeURIComponent(data.videoId));
+   const state=await poll.json();if(!poll.ok)throw new Error(state.error||'Erreur pendant la vérification');
+   if(state.status==='completed'&&state.videoUrl){video.src=state.videoUrl;video.classList.remove('hidden');download.href=state.videoUrl;download.classList.remove('hidden');message.textContent='✅ Ta vidéo est prête !';finished=true;break;}
+   if(state.status==='failed')throw new Error(state.error||'La génération a échoué.');
+   message.textContent='Génération en cours… ('+(i+1)+' / 60)';
+  }
+  if(!finished)message.textContent='La vidéo prend plus de temps que prévu. Reviens vérifier dans quelques instants.';
+ }catch(err){message.textContent='❌ '+err.message;}
+ finally{submit.disabled=false;submit.textContent='✨ Générer ma vidéo';}
+});
 </script>
 </body></html>
